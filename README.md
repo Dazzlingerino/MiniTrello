@@ -1,0 +1,2 @@
+# MiniTrello
+Mini Trello/kanban
