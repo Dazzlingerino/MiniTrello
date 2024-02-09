@@ -1,4 +1,4 @@
-import { type FC, type ReactNode, useState } from 'react'
+import { type FC, type ReactNode, type ChangeEvent, useState } from 'react'
 import { Droppable } from 'react-beautiful-dnd'
 
 import Modal from 'main/components/Modal'
@@ -31,7 +31,7 @@ const Column: FC<ColumnProps> = ({
     }
   }
 
-  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleSortChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const sortOrder = event.target.value
     sortCardsInColumn(id, sortOrder)
   }

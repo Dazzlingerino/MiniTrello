@@ -28,7 +28,8 @@ const Board: FC = () => {
         {columns?.map((column) => (
           <Droppable droppableId={String(column.id)} key={column.id}>
             {(provided) => (
-              <div ref={provided.innerRef} 
+              <div 
+                ref={provided.innerRef} 
                 className="grid min-w-[240px] grid-rows-[40px_minmax(0,_1fr)_80px] rounded bg-gray-100 p-4"
                 {...provided.droppableProps} 
               >

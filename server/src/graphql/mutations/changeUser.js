@@ -1,13 +1,15 @@
 const { getColumns, updateColumns, getUsers } = require('../../state/boardState');
 
-const changeUser = (_, { cardId, assignedUserId }) => {
+const changeUser = (_, { cardId, assignedUser }) => {
   let updatedCard;
+
   const columns = getColumns();
+  const users = getUsers();
 
   columns.forEach(column => {
     column.cards.forEach(card => {
       if (card.id === cardId) {
-        const user = getUsers().find(u => u.id === assignedUserId);
+        const user = users.find(u => u.id === assignedUser);
         card.assignedUser = user ? user.id : null;
         updatedCard = card;
       }

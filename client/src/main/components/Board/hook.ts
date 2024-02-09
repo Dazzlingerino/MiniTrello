@@ -55,14 +55,14 @@ const useBoard = (): UseBoardReturn => {
       update: (cache, { data: { addCard } }) => {
         const existingData = cache.readQuery<{ getColumns: Column[] }>({ query: GET_COLUMNS })
         if (!existingData) return
-
+  
         const newColumns = existingData.getColumns.map(column => {
           if (column.id === columnId) {
             return { ...column, cards: [...column.cards, addCard] }
           }
           return column
         })
-
+  
         cache.writeQuery({
           query: GET_COLUMNS,
           data: { getColumns: newColumns }
@@ -141,7 +141,6 @@ const useBoard = (): UseBoardReturn => {
         const newColumns = existingData.getColumns.map(column => {
           const newCards = column.cards.map(card => {
             if (card.id === cardId) {
-              // Update the card with the new assigned user
               return { ...card, assignedUser: user.id }
             }
             return card

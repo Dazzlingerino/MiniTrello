@@ -2,7 +2,9 @@ const { getColumns, updateColumns } = require('../../state/boardState');
 
 const moveCard = (_, { cardId, newColumnId }) => {
   let movedCard;
-  const columns = getColumns().map(column => {
+  const columnsFromState = getColumns();
+
+  const columns = columnsFromState.map(column => {
     const filteredCards = column.cards.filter(card => {
       if (card.id === cardId) {
         movedCard = { ...card };
